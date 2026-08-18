@@ -1,0 +1,21 @@
+# 模型权重（体积过大，不上传）
+Qwen3-Embedding-4B/
+Qwen3-Reranker-0.6B/
+bge-large-zh-v1.5/
+
+# 大数据文件
+*.jsonl
+*.xlsx
+*.npy
+*.npz
+*.index
+
+# 缓存与编译产物
+__pycache__/
+*.pyc
+models_scripts/cache/
+jobsname/output/
+
+# 数据目录
+data_dwd/
+hbb/专科_jobid.txt
