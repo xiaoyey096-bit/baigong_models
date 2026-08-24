@@ -19,3 +19,9 @@ jobsname/output/
 # 数据目录
 data_dwd/
 hbb/专科_jobid.txt
+
+# 岗位大数据
+hbb/*.csv
+
+# 专业匹配生成的大型结果
+models_scripts/new_top/output/*.csv

@@ -38,10 +38,18 @@ EMBED_BATCH   = 512
 EMBED_MAX_LEN = 512
 
 TOP_K_STAGE1  = 10                              # candidates.npy 存 Top10（Phase 1）
-TOP_K_STAGE2  = 3                               # 最终输出 TopK
-RERANK_BATCH  = 64                              # Reranker 批大小
-RERANK_MAX_LEN = 384                            # Reranker 单 pair 最大 token（提速 29%，质量无损 ≥95%）
 FLUSH_EVERY   = 500
+
+# ══════════════════════════════════════════════════════════════
+# TopN 方案（2026-08-18 起，Reranker 退役）
+#   语义: BGE cosine top20 落盘，生产用 margin 截断（sim ≥ top1−margin）
+#   规则: 精确命中 1.0 / 泛称命中 0.9（分数即来源标签）
+# ══════════════════════════════════════════════════════════════
+TOP_N_CAND    = 20                              # 语义候选落盘数（eval 候选池同源）
+MARGIN        = 0.05                            # sim ≥ top1−margin 入选；eval 扫描后定稿
+TOP_N_CAP     = 10                              # 最终每岗专业数上限
+SCORE_RULE_EXACT  = 1.0                         # 规则: 专业标准名精确命中
+SCORE_RULE_FUZZY  = 0.9                         # 规则: 泛称/别名命中（映射表）
 
 # ══════════════════════════════════════════════════════════════
 # Prompt
