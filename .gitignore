@@ -25,3 +25,6 @@ hbb/*.csv
 
 # 专业匹配生成的大型结果
 models_scripts/new_top/output/*.csv
+models_scripts/new_top/gold_dataset_100k/data/*.csv
+models_scripts/new_top/gold_dataset_100k/output/*
+models_scripts/new_top_teacher_package_backup_*.tar.gz
